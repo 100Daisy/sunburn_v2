@@ -35,7 +35,6 @@ enum touch_panel_id {
 int panel_register_notifier(struct notifier_block *nb);
 int panel_unregister_notifier(struct notifier_block *nb);
 int panel_notify(unsigned int event, void *data);
-int touch_set_state(int state, int panel_idx);
 int check_touch_state(int *state, int panel_idx);
 
 #else
@@ -53,15 +52,10 @@ static inline int panel_notify(unsigned int event, void *data)
 {
 	return -ENOSYS;
 }
-static inline int touch_set_state(int state, int panel_idx);
-{
-	return -ENOSYS;
-}
 static inline int check_touch_state(int *state, int panel_idx);
 {
 	return -ENOSYS;
 }
-
 
 #endif
 #endif
